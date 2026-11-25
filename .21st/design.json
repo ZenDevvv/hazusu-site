@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "project": {
+    "name": "hazusu-website",
+    "productType": "Android app marketing website",
+    "stack": [
+      "vite"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/site.css"
+    ],
+    "components": [
+      "index.html"
+    ],
+    "assets": [
+      "public/fonts",
+      "public/photos",
+      "public/hanko.png"
+    ],
+    "instructions": [
+      "brief.md",
+      "../../docs/design-preferences.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "paper": "#f5f0fb",
+      "plum": "#3b2a44",
+      "pink": "#ff9ec4",
+      "mint": "#86d9be",
+      "lilac": "#cfc4ec"
+    },
+    "typography": {
+      "display": "Dela Gothic One",
+      "body": "Zen Kaku Gothic New"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "scroll": "Lenis on wheel, native touch, C1-continuous handoffs with frame-rate-independent rAF damping",
+      "guide": "Continuous 4-chapter travelling phone weaving through center Swipe Guide, three stacking riso Field Notes folios (Right -> Left -> Center with split display type), and right-docked Android Edition"
+    },
+    "density": "spacious"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Follow the system reduced-motion preference (upright 0deg, no pinning or 3D tilt).",
+      "Represent the four swipe decisions and APK availability accurately.",
+      "Match boundary scroll velocities (C1 continuity) and damp pose changes so travelling elements never hit an abrupt stop or snap between states.",
+      "Keep surrounding copy minimal (less is more): bold headline plus one short sentence per chapter, using wordless visual specimens instead of repeating UI details."
+    ],
+    "avoid": [
+      "Hard boolean screen flips during scroll transitions or easing to a static Y right before entering 1:1 document scroll.",
+      "Duplicate eyelines, status pills, tickets, or text lists that repeat what the in-phone UI or chapter spine already shows.",
+      "Generic arrow/tab carousels or repeating the same pinned-stage mechanic across consecutive sections."
+    ]
+  },
+  "decisions": [
+    {
+      "id": "immersive-camera-roll",
+      "decision": "Use oversized Dela heads, layered photographic prints, Lenis wheel smoothing and a reversible four-direction swipe demonstration. Provide direct controls and reduced-motion layouts.",
+      "source": "brief.md"
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "project.stack:vite",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-11-25T11:45:42.824Z"
+}

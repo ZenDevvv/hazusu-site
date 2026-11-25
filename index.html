@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f0fb" />
+    <meta
+      name="description"
+      content="A clean-out zine for your Android camera roll. See how Hazusu sorts a month of photos with four swipes, entirely on your phone."
+    />
+    <meta property="og:title" content="Hazusu · The camera roll clean-out zine" />
+    <meta
+      property="og:description"
+      content="Keep the good ones. Flip through four photos and get a feel for Hazusu, an offline photo sorter for Android."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./share.jpg" />
+    <title>Hazusu · The camera roll clean-out zine</title>
+    <link rel="icon" type="image/png" href="./hanko.png" />
+    <link rel="preload" href="./fonts/dela.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./src/site.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17m-7-7 7 7-7 7" /></symbol>
+      <symbol id="android" viewBox="0 0 24 24">
+        <path d="m7 6-2-3m12 3 2-3" stroke-linecap="round" />
+        <path d="M2 16a10 10 0 0 1 20 0v1H2z" fill="currentColor" stroke="none" />
+        <g fill="var(--eye,white)" stroke="none">
+          <circle cx="7.5" cy="12.5" r="1" />
+          <circle cx="16.5" cy="12.5" r="1" />
+        </g>
+      </symbol>
+      <symbol id="aperture" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9.5" />
+        <path d="m9 3 5 8m7-1h-9m5 10-5-8m-6 7 4.7-8m-8-1h9m5-6-5 8" />
+      </symbol>
+      <symbol id="prints" viewBox="0 0 24 24">
+        <rect x="3" y="6" width="13" height="16" rx="1" transform="rotate(-12 9 14)" />
+        <rect x="9" y="2" width="12" height="16" rx="1" fill="var(--button-bg,currentColor)" />
+        <path d="m11 14 3-4 2 2 2-3 1 2" />
+      </symbol>
+    </svg>
+    <header class="masthead" id="cover">
+      <div class="measure header-inner">
+        <a href="#cover" class="brand" aria-label="Hazusu home"
+          ><img
+            src="./hanko-104.png"
+            srcset="./hanko-104.png 104w, ./hanko-208.png 208w"
+            sizes="44px"
+            alt=""
+            width="42"
+            height="42"
+          /><span>hazusu</span></a
+        >
+        <a class="edition-link" href="#edition"
+          ><svg class="icon" aria-hidden="true"><use href="#android" /></svg> Android edition</a
+        >
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="cover-title">
+        <div class="measure cover-layout">
+          <div class="cover-copy">
+            <p class="eyeline">
+              <span class="ink-key" aria-hidden="true"><i></i><i></i><i></i></span>The camera roll
+              clean-out zine
+            </p>
+            <h1 id="cover-title">Keep the<br /><span>good ones.</span></h1>
+            <p class="lede">
+              Hazusu turns your camera roll into monthly issues. Sort your photos one swipe at a time,
+              entirely on your Android phone.
+            </p>
+            <a class="action" href="#moves"
+              ><svg class="icon" aria-hidden="true"><use href="#prints" /></svg>Try the swipes</a
+            >
+          </div>
+          <figure class="cover-roll" aria-label="Sample camera roll">
+            <div class="print-space">
+              <span class="dot-field" aria-hidden="true"></span>
+              <div class="print-fan">
+                <div class="print" data-slot="0" data-move="keep">
+                  <img
+                    src="./photos/corner-store.webp"
+                    srcset="
+                      ./photos/corner-store-280.webp 280w,
+                      ./photos/corner-store-480.webp 480w,
+                      ./photos/corner-store.webp     918w
+                    "
+                    sizes="(max-width: 720px) 52vw, (max-width: 980px) 32vw, 26vw"
+                    alt="Red vending machines outside a sunlit Tokyo corner store"
+                    width="918"
+                    height="1350"
+                    fetchpriority="high"
+                  />
+                  <div class="print-foot">
+                    <span>Corner store, Tokyo</span><span class="mono">HZ / 01</span>
+                  </div>
+                </div>
+                <div class="print" data-slot="1" data-move="toss" aria-hidden="true">
+                  <img
+                    src="./photos/side-street.webp"
+                    srcset="
+                      ./photos/side-street-280.webp 280w,
+                      ./photos/side-street-480.webp 480w,
+                      ./photos/side-street.webp     840w
+                    "
+                    sizes="(max-width: 720px) 52vw, (max-width: 980px) 32vw, 26vw"
+                    alt="A red drinks machine against a blue wall down a side street"
+                    width="840"
+                    height="1121"
+                  />
+                  <div class="print-foot">
+                    <span>Around the corner</span><span class="mono">HZ / 02</span>
+                  </div>
+                </div>
+                <div class="print" data-slot="2" data-move="fave" aria-hidden="true">
+                  <img
+                    src="./photos/window-seat.webp"
+                    srcset="
+                      ./photos/window-seat-280.webp 280w,
+                      ./photos/window-seat-480.webp 480w,
+                      ./photos/window-seat.webp     750w
+                    "
+                    sizes="(max-width: 720px) 52vw, (max-width: 980px) 32vw, 26vw"
+                    alt="A cat watching the light through a window"
+                    width="750"
+                    height="900"
+                  />
+                  <div class="print-foot">
+                    <span>The window seat</span><span class="mono">HZ / 03</span>
+                  </div>
+                </div>
+                <div class="print" data-slot="3" data-move="skip" aria-hidden="true">
+                  <img
+                    src="./photos/coffee-break.webp"
+                    srcset="
+                      ./photos/coffee-break-280.webp 280w,
+                      ./photos/coffee-break-480.webp 480w,
+                      ./photos/coffee-break.webp     630w
+                    "
+                    sizes="(max-width: 720px) 52vw, (max-width: 980px) 32vw, 26vw"
+                    alt="A cup of coffee on a café table"
+                    width="630"
+                    height="840"
+                  />
+                  <div class="print-foot">
+                    <span>Coffee break</span><span class="mono">HZ / 04</span>
+                  </div>
+                </div>
+              </div>
+              <span class="move-sticker" aria-hidden="true"
+                ><svg class="icon"><use href="#arrow" /></svg><span>Keep</span></span
+              >
+            </div>
+            <figcaption class="roll-caption">
+              <span class="mono"
+                >Sample roll <span class="slash">/</span>
+                <span id="print-count" aria-live="polite">01 of 04</span></span
+              >
+              <div class="pager js-control">
+                <button type="button" id="print-prev" aria-label="Previous print">
+                  <svg class="icon left" aria-hidden="true"><use href="#arrow" /></svg></button
+                ><button type="button" id="print-next" aria-label="Next print">
+                  <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg>
+                </button>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="cover-colophon measure">
+          <a href="#moves" class="scroll-cue"
+            ><span class="scroll-mark" aria-hidden="true"></span>Scroll to swipe</a
+          >
+          <span class="edition-mark"
+            ><span lang="ja">はずす</span><span class="rule"></span> Android 11+</span
+          >
+        </div>
+      </section>
+
+      <div class="press-strip" aria-hidden="true">
+        <div class="strip-type">
+          <span
+            >Keep<i>→</i><b>✶</b>Toss<i>←</i><b>✶</b>Fave<i>↑</i><b>✶</b>Skip<i>↓</i><b>✶</b></span
+          ><span
+            >Keep<i>→</i><b>✶</b>Toss<i>←</i><b>✶</b>Fave<i>↑</i><b>✶</b>Skip<i>↓</i><b>✶</b></span
+          ><span
+            >Keep<i>→</i><b>✶</b>Toss<i>←</i><b>✶</b>Fave<i>↑</i><b>✶</b>Skip<i>↓</i><b>✶</b></span
+          >
+        </div>
+      </div>
+
+      <section id="moves" class="moves" aria-labelledby="moves-title">
+        <div class="move-stage" data-active="keep">
+          <div class="stage-backdrop" aria-hidden="true">
+            <span class="stage-halftone"></span>
+            <div class="stage-word-track">
+              <span class="stage-word is-current" data-move="keep">Keep</span>
+              <span class="stage-word" data-move="toss">Toss</span>
+              <span class="stage-word" data-move="fave">Fave</span>
+              <span class="stage-word" data-move="skip">Skip</span>
+            </div>
+          </div>
+          <div class="measure stage-top">
+            <h2 class="sr-only" id="moves-title">Swipe guide</h2>
+            <p class="eyeline" aria-hidden="true">
+              <svg class="icon"><use href="#aperture" /></svg>Swipe guide
+            </p>
+            <a class="quiet-link" href="#inside" aria-label="Skip to Inside Hazusu"
+              >Skip <svg class="icon down" aria-hidden="true"><use href="#arrow" /></svg
+            ></a>
+          </div>
+          <div class="stage-center">
+            <div class="phone-slot" id="moves-phone-slot">
+              <div class="phone-rig">
+                <div class="phone" aria-hidden="true">
+                  <div class="phone-glass" id="moves-phone-glass">
+                    <div class="phone-screen swipe-screen is-active" data-screen="swipe">
+                      <div class="roll-end">
+                        <img
+                          src="./hanko-104.png"
+                          srcset="./hanko-104.png 104w, ./hanko-208.png 208w"
+                          sizes="60px"
+                          alt=""
+                          width="60"
+                          height="60"
+                          loading="lazy"
+                          decoding="async"
+                        /><b>End of the<br />sample roll.</b>
+                      </div>
+                      <div class="deck">
+                        <div class="frame" data-move="keep">
+                          <img
+                            src="./photos/corner-store.webp"
+                            srcset="
+                              ./photos/corner-store-280.webp 280w,
+                              ./photos/corner-store-480.webp 480w,
+                              ./photos/corner-store.webp     918w
+                            "
+                            sizes="(max-width: 720px) 180px, 280px"
+                            alt=""
+                            width="918"
+                            height="1350"
+                            loading="lazy"
+                            decoding="async"
+                          /><span class="gesture-word">Keep →</span>
+                        </div>
+                        <div class="frame" data-move="toss">
+                          <img
+                            src="./photos/side-street.webp"
+                            srcset="
+                              ./photos/side-street-280.webp 280w,
+                              ./photos/side-street-480.webp 480w,
+                              ./photos/side-street.webp     840w
+                            "
+                            sizes="(max-width: 720px) 180px, 280px"
+                            alt=""
+                            width="840"
+                            height="1121"
+                            loading="lazy"
+                            decoding="async"
+                          /><span class="gesture-word">← Toss</span>
+                        </div>
+                        <div class="frame" data-move="fave">
+                          <img
+                            src="./photos/window-seat.webp"
+                            srcset="
+                              ./photos/window-seat-280.webp 280w,
+                              ./photos/window-seat-480.webp 480w,
+                              ./photos/window-seat.webp     750w
+                            "
+                            sizes="(max-width: 720px) 180px, 280px"
+                            alt=""
+                            width="750"
+                            height="900"
+                            loading="lazy"
+                            decoding="async"
+                          /><span class="gesture-word">↑ Fave</span>
+                        </div>
+                        <div class="frame" data-move="skip">
+                          <img
+                            src="./photos/coffee-break.webp"
+                            srcset="
+                              ./photos/coffee-break-280.webp 280w,
+                              ./photos/coffee-break-480.webp 480w,
+                              ./photos/coffee-break.webp     630w
+                            "
+                            sizes="(max-width: 720px) 180px, 280px"
+                            alt=""
+                            width="630"
+                            height="840"
+                            loading="lazy"
+                            decoding="async"
+                          /><span class="gesture-word">↓ Skip</span>
+                        </div>
+                      </div>
+                      <div class="phone-top">
+                        <span id="phone-index">‹ 1 / 4</span><span id="pile-count">Toss 0</span>
+                      </div>
+                    </div>
+                    <span class="phone-home"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="measure stage-foot">
+            <div class="move-stories">
+              <article class="move-story is-current" data-move="keep">
+                <p><span class="direction">Swipe right · Keep — </span>Leave it in your library.</p>
+              </article>
+              <article class="move-story" data-move="toss">
+                <p><span class="direction">Swipe left · Toss — </span>Move it to the Toss pile.</p>
+              </article>
+              <article class="move-story" data-move="fave">
+                <p><span class="direction">Swipe up · Fave — </span>Keep and favorite on Android.</p>
+              </article>
+              <article class="move-story" data-move="skip">
+                <p><span class="direction">Swipe down · Skip — </span>Send it to the back.</p>
+              </article>
+            </div>
+            <div class="move-nav js-control" role="group" aria-label="Choose a swipe to preview">
+              <button type="button" aria-pressed="true" data-move="keep" data-state="active">
+                <span class="move-btn-base"><i aria-hidden="true">→</i>Keep</span>
+                <span class="move-btn-fill" aria-hidden="true"><i>→</i>Keep</span>
+              </button>
+              <button type="button" aria-pressed="false" data-move="toss" data-state="todo">
+                <span class="move-btn-base"><i aria-hidden="true">←</i>Toss</span>
+                <span class="move-btn-fill" aria-hidden="true"><i>←</i>Toss</span>
+              </button>
+              <button type="button" aria-pressed="false" data-move="fave" data-state="todo">
+                <span class="move-btn-base"><i aria-hidden="true">↑</i>Fave</span>
+                <span class="move-btn-fill" aria-hidden="true"><i>↑</i>Fave</span>
+              </button>
+              <button type="button" aria-pressed="false" data-move="skip" data-state="todo">
+                <span class="move-btn-base"><i aria-hidden="true">↓</i>Skip</span>
+                <span class="move-btn-fill" aria-hidden="true"><i>↓</i>Skip</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="inside" id="inside" aria-labelledby="inside-title">
+        <div class="measure inside-intro">
+          <p class="eyeline">
+            <span class="ink-key" aria-hidden="true"><i></i><i></i><i></i></span>Field notes
+          </p>
+          <h2 id="inside-title">Inside Hazusu.</h2>
+        </div>
+
+        <div class="measure inside-folios" id="inside-folios">
+          <div class="folio-sentinel" data-sentinel="0" aria-hidden="true"></div>
+          <article class="folio folio--issues" data-note="0" style="--i: 0">
+            <div class="folio-surface">
+              <div class="folio-veil" aria-hidden="true"></div>
+              <button
+                type="button"
+                class="folio-spine"
+                data-jump-folio="0"
+                aria-label="Monthly issues — folio 01"
+              >
+                <span class="spine-left">
+                  <span class="spine-num">01</span>
+                  <span class="spine-name">Monthly issues</span>
+                </span>
+              </button>
+              <div class="folio-canvas">
+                <span class="folio-ghost" aria-hidden="true">Issues</span>
+                <div class="folio-body folio-body--right">
+                  <div class="folio-editorial">
+                    <h3>One month <br />at a time.</h3>
+                    <p class="folio-copy">Each month of photos gets its own cover.</p>
+                    <div class="issue-stamps" aria-hidden="true">
+                      <div class="stamp-card stamp-mint">
+                        <img
+                          src="./photos/corner-store-280.webp"
+                          alt=""
+                          width="280"
+                          height="412"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <b>11</b>
+                      </div>
+                      <div class="stamp-card stamp-lilac">
+                        <img
+                          src="./photos/side-street-280.webp"
+                          alt=""
+                          width="280"
+                          height="374"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <b>09</b>
+                        <img
+                          class="stamp-seal"
+                          src="./hanko-104.png"
+                          alt=""
+                          width="22"
+                          height="22"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      <div class="stamp-card stamp-pink">
+                        <img
+                          src="./photos/coffee-break-280.webp"
+                          alt=""
+                          width="280"
+                          height="373"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <b>08</b>
+                        <img
+                          class="stamp-seal"
+                          src="./hanko-104.png"
+                          alt=""
+                          width="22"
+                          height="22"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="folio-stage">
+                    <span class="folio-halo halo-lilac" aria-hidden="true"></span>
+                    <div class="folio-phone-slot" data-folio-slot="0">
+                      <div class="static-phone">
+                        <div class="phone">
+                          <div class="phone-glass" data-note-host="0">
+                            <div
+                              class="phone-screen app-screen screen-issues"
+                              data-screen="note-0"
+                              aria-hidden="true"
+                            >
+                              <div class="app-mast">
+                                <div class="app-mast-row">
+                                  <span class="app-brand"
+                                    ><img
+                                      src="./hanko-104.png"
+                                      alt=""
+                                      width="18"
+                                      height="18"
+                                      loading="lazy"
+                                      decoding="async"
+                                    /><b>hazusu</b></span
+                                  ><span class="app-stat">3.2 GB freed</span>
+                                </div>
+                                <div class="app-mast-sub">
+                                  <span>ISSUE 10</span><span>OCT 2026</span
+                                  ><span lang="ja">はずす</span>
+                                </div>
+                              </div>
+                              <div class="app-cover">
+                                <img
+                                  src="./photos/window-seat-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="336"
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                                <div class="app-cover-over">
+                                  <strong class="app-cover-title">OCTO-<br />BER</strong>
+                                  <div class="app-cover-foot">
+                                    <span class="app-mint-chip">151 of 214 left</span>
+                                    <span class="app-dark-btn">Open issue</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="app-tabs">
+                                <span class="is-on">Months</span><span>Groups</span
+                                ><span>Faves</span><span>Toss <em>12</em></span>
+                              </div>
+                              <div class="app-subhead">BACK ISSUES</div>
+                              <div class="app-back-grid">
+                                <div class="app-back-card back-mint">
+                                  <img
+                                    src="./photos/corner-store-280.webp"
+                                    alt=""
+                                    width="280"
+                                    height="412"
+                                    loading="lazy"
+                                    decoding="async"
+                                  /><b>11</b><span>Nov</span>
+                                </div>
+                                <div class="app-back-card back-lilac">
+                                  <img
+                                    src="./photos/side-street-280.webp"
+                                    alt=""
+                                    width="280"
+                                    height="374"
+                                    loading="lazy"
+                                    decoding="async"
+                                  /><b>09</b
+                                  ><img
+                                    class="mini-seal"
+                                    src="./hanko-104.png"
+                                    alt=""
+                                    width="18"
+                                    height="18"
+                                    loading="lazy"
+                                    decoding="async"
+                                  /><span>Sep</span>
+                                </div>
+                                <div class="app-back-card back-pink">
+                                  <img
+                                    src="./photos/coffee-break-280.webp"
+                                    alt=""
+                                    width="280"
+                                    height="373"
+                                    loading="lazy"
+                                    decoding="async"
+                                  /><b>08</b
+                                  ><img
+                                    class="mini-seal"
+                                    src="./hanko-104.png"
+                                    alt=""
+                                    width="18"
+                                    height="18"
+                                    loading="lazy"
+                                    decoding="async"
+                                  /><span>Aug</span>
+                                </div>
+                              </div>
+                            </div>
+                            <span class="phone-home"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="folio-gap" aria-hidden="true"></div>
+          <div class="folio-sentinel" data-sentinel="1" aria-hidden="true"></div>
+          <article class="folio folio--piles" data-note="1" style="--i: 1">
+            <div class="folio-surface">
+              <div class="folio-veil" aria-hidden="true"></div>
+              <button
+                type="button"
+                class="folio-spine"
+                data-jump-folio="1"
+                aria-label="Smart piles — folio 02"
+              >
+                <span class="spine-left">
+                  <span class="spine-num">02</span>
+                  <span class="spine-name">Smart piles</span>
+                </span>
+              </button>
+              <div class="folio-canvas">
+                <span class="folio-ghost" aria-hidden="true">Piles</span>
+                <div class="folio-body folio-body--left">
+                  <div class="folio-stage">
+                    <span class="folio-halo halo-cream" aria-hidden="true"></span>
+                    <div class="folio-phone-slot" data-folio-slot="1">
+                      <div class="static-phone">
+                        <div class="phone">
+                          <div class="phone-glass" data-note-host="1">
+                            <div
+                              class="phone-screen app-screen screen-groups"
+                              data-screen="note-1"
+                              aria-hidden="true"
+                            >
+                              <div class="app-head-bar">
+                                <span>GROUPS</span><span>11.0 GB in groups</span>
+                              </div>
+                              <strong class="app-display">Sorted</strong>
+                              <div class="app-tabs">
+                                <span>Months</span><span class="is-on">Groups</span
+                                ><span>Faves</span><span>Toss <em>12</em></span>
+                              </div>
+                              <div class="app-group-list">
+                                <div class="app-group-row">
+                                  <b>27</b>
+                                  <div><strong>Videos over 100 MB</strong><span>6.8 GB</span></div>
+                                  <div class="app-row-thumbs">
+                                    <img
+                                      src="./photos/corner-store-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="412"
+                                      loading="lazy"
+                                      decoding="async"
+                                    /><img
+                                      src="./photos/side-street-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="374"
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="app-group-row">
+                                  <b>54</b>
+                                  <div><strong>Look-alike sets</strong><span>1.9 GB</span></div>
+                                  <div class="app-row-thumbs">
+                                    <img
+                                      src="./photos/side-street-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="374"
+                                      loading="lazy"
+                                      decoding="async"
+                                    /><img
+                                      src="./photos/corner-store-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="412"
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="app-group-row">
+                                  <b>89</b>
+                                  <div><strong>Blurry or dark</strong><span>410 MB</span></div>
+                                  <div class="app-row-thumbs">
+                                    <img
+                                      src="./photos/window-seat-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="336"
+                                      loading="lazy"
+                                      decoding="async"
+                                    /><img
+                                      src="./photos/coffee-break-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="373"
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="app-group-row">
+                                  <b>642</b>
+                                  <div><strong>Screenshots</strong><span>1.1 GB</span></div>
+                                  <div class="app-row-thumbs">
+                                    <img
+                                      src="./photos/coffee-break-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="373"
+                                      loading="lazy"
+                                      decoding="async"
+                                    /><img
+                                      src="./photos/window-seat-280.webp"
+                                      alt=""
+                                      width="280"
+                                      height="336"
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <span class="phone-home"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="folio-editorial">
+                    <h3>Find the <br />near misses.</h3>
+                    <p class="folio-copy">
+                      Big videos, look-alike sets and blurry shots, grouped on your phone.
+                    </p>
+                    <div class="pile-specimens" aria-hidden="true">
+                      <div class="specimen specimen-video" style="--row: 0">
+                        <img
+                          src="./photos/corner-store-280.webp"
+                          alt=""
+                          width="280"
+                          height="412"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <svg class="specimen-play" viewBox="0 0 24 24">
+                          <polygon points="8,5 20,12 8,19" />
+                        </svg>
+                      </div>
+                      <div class="specimen specimen-twin" style="--row: 1">
+                        <img
+                          class="twin-back"
+                          src="./photos/side-street-280.webp"
+                          alt=""
+                          width="280"
+                          height="374"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <img
+                          class="twin-front"
+                          src="./photos/side-street-280.webp"
+                          alt=""
+                          width="280"
+                          height="374"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      <div class="specimen specimen-blur" style="--row: 2">
+                        <img
+                          src="./photos/window-seat-280.webp"
+                          alt=""
+                          width="280"
+                          height="336"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="folio-gap" aria-hidden="true"></div>
+          <div class="folio-sentinel" data-sentinel="2" aria-hidden="true"></div>
+          <article class="folio folio--toss" data-note="2" style="--i: 2">
+            <div class="folio-surface">
+              <div class="folio-veil" aria-hidden="true"></div>
+              <button
+                type="button"
+                class="folio-spine"
+                data-jump-folio="2"
+                aria-label="Toss pile — folio 03"
+              >
+                <span class="spine-left">
+                  <span class="spine-num">03</span>
+                  <span class="spine-name">Toss pile</span>
+                </span>
+              </button>
+              <div class="folio-canvas">
+                <span class="folio-ghost" aria-hidden="true">Toss</span>
+                <div class="folio-body folio-body--center">
+                  <h3 class="toss-split-head">
+                    <span class="split-left">A second</span> <span class="split-right">look.</span>
+                  </h3>
+                  <div class="toss-wing-left" aria-hidden="true">
+                    <div class="toss-contact">
+                      <figure class="contact-print cp-1">
+                        <img
+                          src="./photos/side-street-280.webp"
+                          alt=""
+                          width="280"
+                          height="374"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </figure>
+                      <figure class="contact-print cp-2">
+                        <img
+                          src="./photos/coffee-break-280.webp"
+                          alt=""
+                          width="280"
+                          height="373"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </figure>
+                      <figure class="contact-print cp-3">
+                        <img
+                          src="./photos/corner-store-280.webp"
+                          alt=""
+                          width="280"
+                          height="412"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="folio-stage folio-stage--center">
+                    <span class="folio-halo halo-pink" aria-hidden="true"></span>
+                    <div class="folio-phone-slot" data-folio-slot="2">
+                      <div class="static-phone">
+                        <div class="phone">
+                          <div class="phone-glass" data-note-host="2">
+                            <div
+                              class="phone-screen app-screen screen-toss"
+                              data-screen="note-2"
+                              aria-hidden="true"
+                            >
+                              <div class="app-head-bar">
+                                <span>TOSS PILE · 12 ITEMS</span><span>Close</span>
+                              </div>
+                              <strong class="app-display">284 MB</strong>
+                              <p class="app-sub">comes back to your phone when these go.</p>
+                              <div class="app-toss-grid">
+                                <img
+                                  src="./photos/side-street-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="374"
+                                  loading="lazy"
+                                  decoding="async"
+                                /><img
+                                  src="./photos/coffee-break-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="373"
+                                  loading="lazy"
+                                  decoding="async"
+                                /><img
+                                  src="./photos/corner-store-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="412"
+                                  loading="lazy"
+                                  decoding="async"
+                                /><img
+                                  src="./photos/window-seat-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="336"
+                                  loading="lazy"
+                                  decoding="async"
+                                /><img
+                                  src="./photos/coffee-break-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="373"
+                                  loading="lazy"
+                                  decoding="async"
+                                /><img
+                                  src="./photos/side-street-280.webp"
+                                  alt=""
+                                  width="280"
+                                  height="374"
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              </div>
+                              <p class="app-hint">Tap one to see it in color and take it back.</p>
+                              <div class="app-toss-foot">
+                                <span class="app-empty-btn">Empty the pile</span>
+                                <span class="app-trash-note"
+                                  >Confirm first · 30-day Android trash</span
+                                >
+                              </div>
+                            </div>
+                            <span class="phone-home"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="toss-wing-right">
+                    <p class="folio-copy">
+                      Take back any photo before it goes to Android’s 30-day trash.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="folio-tail" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="edition" id="edition" aria-labelledby="edition-title">
+        <div class="measure edition-layout">
+          <div class="edition-copy">
+            <p class="eyeline">
+              <svg class="icon" aria-hidden="true"><use href="#android" /></svg>Android edition
+            </p>
+            <h2 id="edition-title">Your roll<br />stays yours.</h2>
+            <p>
+              Hazusu works offline. Your photos stay on your phone, and you can sort them without an
+              account or ads.
+            </p>
+          </div>
+          <div class="edition-slot-wrap">
+            <div class="edition-phone-slot" id="edition-phone-slot">
+              <div class="static-phone edition-static-phone">
+                <div class="phone">
+                  <div class="phone-glass" id="edition-notes-host">
+                    <div class="phone-screen app-screen screen-notes edition-notes" data-screen="notes">
+                      <div class="app-head-bar">
+                        <span>COLOPHON</span><span lang="ja">はずす</span>
+                      </div>
+                      <h3>App notes</h3>
+                      <dl>
+                        <div>
+                          <dt>Platform</dt>
+                          <dd>Android 11 and up</dd>
+                        </div>
+                        <div>
+                          <dt>Format</dt>
+                          <dd>Sideloaded APK · arm64</dd>
+                        </div>
+                        <div>
+                          <dt>Release</dt>
+                          <dd>In development</dd>
+                        </div>
+                      </dl>
+                      <div class="app-offline-bar" aria-hidden="true">
+                        <span>YOUR PHONE</span>
+                        <div class="app-bar-track">
+                          <i class="bar-pink"></i><i class="bar-mint"></i>
+                        </div>
+                        <div class="app-bar-meta">
+                          <span>Offline only</span><span>No account · No ads</span>
+                        </div>
+                      </div>
+                      <p class="notes-status">
+                        The public APK is still to come. In the meantime, the swipe guide is open.
+                      </p>
+                      <a class="action action-compact phone-cta" href="#moves"
+                        ><svg class="icon" aria-hidden="true"><use href="#prints" /></svg>Revisit the
+                        swipe guide</a
+                      >
+                    </div>
+                    <span class="phone-home"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="device-stage" id="device-stage">
+        <div class="device-rig" id="device-rig">
+          <div class="phone">
+            <div class="phone-glass" id="device-glass">
+              <span class="phone-home"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="measure">
+        <div class="footer-top">
+          <span class="eyeline"
+            ><span class="ink-key" aria-hidden="true"><i></i><i></i><i></i></span>The clean-out
+            zine</span
+          ><a href="#cover"
+            >Back to cover <svg class="icon up" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+        </div>
+        <div class="footer-signature">
+          <span>hazusu</span
+          ><img
+            src="./hanko-208.png"
+            srcset="./hanko-104.png 104w, ./hanko-208.png 208w, ./hanko.png 312w"
+            sizes="11vw"
+            alt=""
+            width="150"
+            height="150"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
