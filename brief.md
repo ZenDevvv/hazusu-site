@@ -2,13 +2,13 @@
 
 ## Goal and audience
 
-Introduce Hazusu to Android users with a camera roll full of photos and videos they mean to sort. The primary action is **Try the swipes**. A visitor can experience the four decisions using sample photos, without installing the app or sharing a library.
+Introduce Hazusu to Android users with a camera roll full of photos and videos they mean to sort. The primary action is **Download APK** (direct download of the `v0.4.0-alpha.1` testing prerelease hosted via GitHub Releases on `ZenDevvv/hazusu-site`). Visitors can also experience all four swipe decisions on the page using sample photos before installing.
 
 ## Pages and content
 
 One editorial landing page opens with a fan of four prints and the top of the phone peeking behind them. Scrolling glides the same Android device continuously through the entire page: first to center-stage for the four-direction swipe guide, then weaving across three stacking riso zine folios in Field Notes (Monthly issues on the right, Smart piles flipped to the left, Toss pile dead-center flanked by split display typography), and finally into the closing Android edition section where App notes and the return action live inside the phone screen itself.
 
-Use Hazusu’s current product README, release notes, swipe implementation and brand book as the source of truth. The release is in development. Add a download action once a working public release exists.
+Use Hazusu’s current product README, release notes, swipe implementation and brand book as the source of truth. The current testing prerelease (`v0.4.0-alpha.1`) is linked directly from the Hero and Android edition buttons via GitHub Releases on `ZenDevvv/hazusu-site`.
 
 ## Visual direction
 

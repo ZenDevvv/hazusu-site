@@ -42,6 +42,9 @@
         <rect x="9" y="2" width="12" height="16" rx="1" fill="var(--button-bg,currentColor)" />
         <path d="m11 14 3-4 2 2 2-3 1 2" />
       </symbol>
+      <symbol id="download" viewBox="0 0 24 24">
+        <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M4 19h16" stroke-linecap="round" />
+      </symbol>
     </svg>
     <header class="masthead" id="cover">
       <div class="measure header-inner">
@@ -73,8 +76,11 @@
               Hazusu turns your camera roll into monthly issues. Sort your photos one swipe at a time,
               entirely on your Android phone.
             </p>
-            <a class="action" href="#moves"
-              ><svg class="icon" aria-hidden="true"><use href="#prints" /></svg>Try the swipes</a
+            <a
+              class="action"
+              href="https://github.com/ZenDevvv/hazusu-site/releases/download/v0.4.0-alpha.1/hazusu-0.4.0-alpha.1.apk"
+              download="hazusu-0.4.0-alpha.1.apk"
+              ><svg class="icon" aria-hidden="true"><use href="#download" /></svg>Download APK</a
             >
           </div>
           <figure class="cover-roll" aria-label="Sample camera roll">
@@ -905,7 +911,7 @@
                         </div>
                         <div>
                           <dt>Release</dt>
-                          <dd>In development</dd>
+                          <dd>v0.4.0-alpha.1</dd>
                         </div>
                       </dl>
                       <div class="app-offline-bar" aria-hidden="true">
@@ -918,11 +924,15 @@
                         </div>
                       </div>
                       <p class="notes-status">
-                        The public APK is still to come. In the meantime, the swipe guide is open.
+                        Testing prerelease (75 MB). Allow sideloading and open the APK on Android
+                        11+.
                       </p>
-                      <a class="action action-compact phone-cta" href="#moves"
-                        ><svg class="icon" aria-hidden="true"><use href="#prints" /></svg>Revisit the
-                        swipe guide</a
+                      <a
+                        class="action action-compact phone-cta"
+                        href="https://github.com/ZenDevvv/hazusu-site/releases/download/v0.4.0-alpha.1/hazusu-0.4.0-alpha.1.apk"
+                        download="hazusu-0.4.0-alpha.1.apk"
+                        ><svg class="icon" aria-hidden="true"><use href="#download" /></svg>Download
+                        APK</a
                       >
                     </div>
                     <span class="phone-home"></span>
@@ -957,12 +967,12 @@
         <div class="footer-signature">
           <span>hazusu</span
           ><img
-            src="./hanko-208.png"
-            srcset="./hanko-104.png 104w, ./hanko-208.png 208w, ./hanko.png 312w"
-            sizes="11vw"
+            src="./hanko.png"
+            srcset="./hanko-208.png 208w, ./hanko.png 312w"
+            sizes="(max-width: 720px) 22vw, 18vw"
             alt=""
-            width="150"
-            height="150"
+            width="312"
+            height="312"
             loading="lazy"
             decoding="async"
           />

@@ -2079,18 +2079,21 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
   margin-top: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.08em;
-  font-size: clamp(4.1rem, 15.7vw, 17.2rem);
+  font-size: clamp(3.6rem, 14.8vw, 16.5rem);
 }
 .footer-signature span {
   margin-left: -0.035em;
 }
 .footer-signature img {
-  width: 11%;
-  height: auto;
+  flex: none;
+  height: 0.96em;
+  width: auto;
   transform: rotate(7deg);
+  filter: drop-shadow(0 10px 24px rgba(15, 8, 22, 0.35));
 }
 
 @media (min-width: 1600px) {
